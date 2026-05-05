@@ -29,6 +29,7 @@ Traffic was captured and analyzed to identify patterns associated with reconnais
 
 ## 🔍 Key Findings
 
+* High volume of SYN packets detected (port scanning behavior)
 * Multiple ports probed across the target system
 * Port **445 (SMB)** confirmed open
 * RST/ACK responses observed on closed ports
@@ -59,64 +60,50 @@ Traffic was captured and analyzed to identify patterns associated with reconnais
 
 ## 📊 Packet Analysis Evidence
 
-### 🔹 Wireshark Capture Initialization
-Wireshark configured to capture traffic on the active interface.
-
-![Capture Setup](screenshots/traffic_capture.png)
-
----
-
-### 🔹 Baseline Network Traffic (Normal Activity)
-Normal DNS, TCP handshake, and HTTPS traffic observed.
-
-![Baseline](screenshots/analysis_view.png)
-
-
----
-
-### 🔹 Nmap SYN Scan – Service Discovery
-TCP SYN scan identifies open ports on the target.
-
-![Scan Overview](screenshots/scan_overview.png)
-
-
----
-
 ### 🔹 SYN Scan Activity Observed in Wireshark
-Attacker scanning target; closed ports return RST/ACK, port 445 open.
-
-![RST ACK](screenshots/rst_ack.png)
-
-
----
-
-### 🔹 Filtered SYN Packets (Port Scanning Evidence)
-Filter:tcp.flags.syn == 1 && tcp.flags.ack == 0
 
 ![SYN Scan](screenshots/syn_scan.png)
 
 ---
 
-### 🔹 Attacker Source Traffic Analysis
-Filter:p.src == 192.168.20.11
+### 🔹 RST/ACK Responses (Closed Ports)
 
-![Attacker Traffic](screenshots/filtered_view.png)
+![RST ACK](screenshots/rst_ack.png)
 
 ---
 
-### 🔹 SMB Enumeration Attempts with Access Denied
-SMB enumeration attempts failed due to authentication controls.
+### 🔹 SMB Enumeration Attempt
 
 ![SMB Enumeration](screenshots/smb_enum.png)
 
 ---
 
+### 🔹 Traffic Capture Overview
+
+![Traffic Overview](screenshots/traffic_capture.png)
+
+---
+
+### 🔹 Filtered SYN Packets (Port Scanning Evidence)
+
+![Filtered View](screenshots/filtered_view.png)
+
+---
+
+### 🔹 Scan Activity Overview
+
+![Scan Overview](screenshots/scan_overview.png)
+
+---
+
+### 🔹 Detailed Packet Analysis
+
+![Analysis View](screenshots/analysis_view.png)
+
+---
+
 ## 📁 Project Structure
 
-### 🔹 Wireshark Capture Initialization
-Wireshark configured to capture traffic on the active interface.
-
-![Capture Setup](screenshots/traffic_capture.png)
 wireshark-threat-detection-lab/
 │
 ├── README.md
