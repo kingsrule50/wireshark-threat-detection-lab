@@ -113,10 +113,6 @@ SMB enumeration attempts failed due to authentication controls.
 
 ## 📁 Project Structure
 
-### 🔹 Wireshark Capture Initialization
-Wireshark configured to capture traffic on the active interface.
-
-![Capture Setup](screenshots/traffic_capture.png)
 wireshark-threat-detection-lab/
 │
 ├── README.md
