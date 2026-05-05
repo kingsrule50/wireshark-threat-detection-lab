@@ -29,7 +29,6 @@ Traffic was captured and analyzed to identify patterns associated with reconnais
 
 ## 🔍 Key Findings
 
-* High volume of SYN packets detected (port scanning behavior)
 * Multiple ports probed across the target system
 * Port **445 (SMB)** confirmed open
 * RST/ACK responses observed on closed ports
