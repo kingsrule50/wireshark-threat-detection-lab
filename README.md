@@ -67,7 +67,7 @@ This behavior is consistent with reconnaissance activity in the early stages of 
 * Identify repeated SMB enumeration attempts
 * Correlate attacker IP across multiple services
 * Use packet filtering to isolate malicious traffic
-
+These detection patterns can be operationalized in SIEM platforms such as Splunk for real-time alerting.
 ---
 
 ## 🔐 Mitigation
@@ -162,7 +162,7 @@ wireshark-threat-detection-lab/
 
 ## 🎯 Conclusion
 
-This project successfully demonstrates how reconnaissance and enumeration activities manifest in network traffic and how defensive controls can detect and mitigate such behavior.
+This project demonstrates how reconnaissance and enumeration activity can be identified at the packet level, enabling SOC analysts to detect early-stage attacks before exploitation occurs.
 
 ## 👤 Author
 
