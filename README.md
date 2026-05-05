@@ -1,6 +1,10 @@
 # 🛡️ Network Threat Detection & Packet Analysis Lab
-
+![Status](https://img.shields.io/badge/status-completed-brightgreen)
+![Tool](https://img.shields.io/badge/tool-Wireshark-blue)
+![Focus](https://img.shields.io/badge/focus-threat--detection-red)
 ## 📌 Overview
+
+This lab is designed to reflect real SOC investigation workflows using packet-level analysis.
 
 This project simulates real-world attacker reconnaissance and service enumeration within a segmented lab environment. Network traffic was captured and analyzed using Wireshark to identify malicious behavior and validate defensive controls.
 
@@ -37,6 +41,25 @@ Traffic was captured and analyzed to identify patterns associated with reconnais
 
 ---
 
+## 🛡️ SOC Analyst Perspective
+
+From a SOC perspective, this activity would trigger alerts for:
+
+- High volume SYN packets indicating port scanning
+- Multiple connection attempts across different ports
+- SMB enumeration attempts from a single source IP
+
+An analyst would investigate:
+
+- Source IP address (192.168.20.11)
+- Frequency and timing of connection attempts
+- Targeted services (especially SMB on port 445)
+- Authentication failures and access denial logs
+
+This behavior is consistent with reconnaissance activity in the early stages of an attack.
+
+---
+
 ## 🛡️ Detection Strategy
 
 * Monitor abnormal SYN packet spikes
@@ -66,12 +89,7 @@ Wireshark configured to capture traffic on the active interface.
 
 ---
 
-### 🔹 Baseline Network Traffic (Normal Activity)
-Normal DNS, TCP handshake, and HTTPS traffic observed.
-
----
-
-### 🔹 Nmap SYN Scan – Service Discovery
+### 🔹 Nmap SYN Scan – Service Discovery  
 TCP SYN scan identifies open ports on the target.
 
 ![Scan Overview](screenshots/scan_overview.png)
@@ -84,18 +102,21 @@ Attacker scanning target; closed ports return RST/ACK, port 445 open.
 
 ![RST ACK](screenshots/rst_ack.png)
 
-
 ---
 
 ### 🔹 Filtered SYN Packets (Port Scanning Evidence)
-Filter:tcp.flags.syn == 1 && tcp.flags.ack == 0
+
+Filter:
+`tcp.flags.syn == 1 && tcp.flags.ack == 0`
 
 ![SYN Scan](screenshots/syn_scan.png)
 
 ---
 
 ### 🔹 Attacker Source Traffic Analysis
-Filter:p.src == 192.168.20.11
+
+Filter:
+`ip.src == 192.168.20.11`
 
 ![Attacker Traffic](screenshots/filtered_view.png)
 
@@ -110,6 +131,7 @@ SMB enumeration attempts failed due to authentication controls.
 
 ## 📁 Project Structure
 
+```
 wireshark-threat-detection-lab/
 │
 ├── README.md
@@ -117,8 +139,7 @@ wireshark-threat-detection-lab/
 ├── report/
 │   ├── wireshark-lab-report.pdf
 │   └── wireshark-lab-report.docx
-├── pcap/
-├── queries/
+```
 
 ---
 
@@ -130,11 +151,18 @@ wireshark-threat-detection-lab/
 
 ---
 
+## 🧠 Skills Demonstrated
+
+- Network Traffic Analysis (Wireshark)
+- Packet Inspection and Filtering
+- Threat Detection & Pattern Recognition
+- SYN Scan Identification
+- SMB Enumeration Analysis
+- Security Investigation Workflow
+
 ## 🎯 Conclusion
 
-This lab successfully demonstrates how reconnaissance and enumeration activities appear in network traffic and how defensive controls such as authentication enforcement and segmentation reduce attack success.
-
----
+This project successfully demonstrates how reconnaissance and enumeration activities manifest in network traffic and how defensive controls can detect and mitigate such behavior.
 
 ## 👤 Author
 
