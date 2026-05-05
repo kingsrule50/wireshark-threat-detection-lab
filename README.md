@@ -67,7 +67,8 @@ This behavior is consistent with reconnaissance activity in the early stages of 
 * Identify repeated SMB enumeration attempts
 * Correlate attacker IP across multiple services
 * Use packet filtering to isolate malicious traffic
-These detection patterns can be operationalized in SIEM platforms such as Splunk for real-time alerting.
+
+> These detection patterns can be operationalized in SIEM platforms such as Splunk for real-time alerting.
 
 ---
 
