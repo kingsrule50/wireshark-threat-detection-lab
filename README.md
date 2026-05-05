@@ -69,9 +69,6 @@ Wireshark configured to capture traffic on the active interface.
 ### 🔹 Baseline Network Traffic (Normal Activity)
 Normal DNS, TCP handshake, and HTTPS traffic observed.
 
-![Baseline](screenshots/analysis_view.png)
-
-
 ---
 
 ### 🔹 Nmap SYN Scan – Service Discovery
