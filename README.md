@@ -1,7 +1,15 @@
 # 🛡️ Network Threat Detection & Packet Analysis Lab
+
+![SOC Lab Diagram](screenshots/soc_lab_diagram.png)
+
+Enterprise-style SOC lab topology showing segmented VMware network architecture with pfSense firewall routing traffic between the Windows Server log source, Windows 11 endpoint, Kali attacker network, and centralized Splunk SIEM server.
+
 ![Status](https://img.shields.io/badge/status-completed-brightgreen)
 ![Tool](https://img.shields.io/badge/tool-Wireshark-blue)
 ![Focus](https://img.shields.io/badge/focus-threat--detection-red)
+
+---
+
 ## 📌 Overview
 
 This lab is designed to reflect real SOC investigation workflows using packet-level analysis.
@@ -85,21 +93,23 @@ This behavior is consistent with reconnaissance activity in the early stages of 
 ## 📊 Packet Analysis Evidence
 
 ### 🔹 Wireshark Capture Initialization
+
 Wireshark configured to capture traffic on the active interface.
 
 ![Capture Setup](screenshots/traffic_capture.png)
 
 ---
 
-### 🔹 Nmap SYN Scan – Service Discovery  
+### 🔹 Nmap SYN Scan – Service Discovery
+
 TCP SYN scan identifies open ports on the target.
 
 ![Scan Overview](screenshots/scan_overview.png)
 
-
 ---
 
 ### 🔹 SYN Scan Activity Observed in Wireshark
+
 Attacker scanning target; closed ports return RST/ACK, port 445 open.
 
 ![RST ACK](screenshots/rst_ack.png)
@@ -125,6 +135,7 @@ Filter:
 ---
 
 ### 🔹 SMB Enumeration Attempts with Access Denied
+
 SMB enumeration attempts failed due to authentication controls.
 
 ![SMB Enumeration](screenshots/smb_enum.png)
@@ -133,7 +144,7 @@ SMB enumeration attempts failed due to authentication controls.
 
 ## 📁 Project Structure
 
-```
+```text
 wireshark-threat-detection-lab/
 │
 ├── README.md
@@ -162,12 +173,15 @@ wireshark-threat-detection-lab/
 - SMB Enumeration Analysis
 - Security Investigation Workflow
 
+---
+
 ## 🎯 Conclusion
 
 This project demonstrates how reconnaissance and enumeration activity can be identified at the packet level, enabling SOC analysts to detect early-stage attacks before exploitation occurs.
 
+---
+
 ## 👤 Author
 
-**Chinedu Kingsley Asuzu**
+**Chinedu Kingsley Asuzu**  
 Cybersecurity Analyst | SOC | Cloud Security Engineer
-
