@@ -48,7 +48,7 @@ The attack chain covered:
 
 ### Network Topology Diagram
 
-![Wireshark Lab Architecture](architecture.svg)
+![Wireshark Lab Network Topology](screenshots/soc_lab_diagram.png)
 
 ### Network Segments
 
