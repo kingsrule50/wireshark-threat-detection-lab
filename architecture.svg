@@ -1,0 +1,126 @@
+<svg width="100%" viewBox="0 0 680 560" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Wireshark Threat Detection Lab — Network Architecture</title>
+  <desc>Segmented VMware lab showing Kali Linux attacker scanning Windows 11 target through pfSense firewall, with Wireshark capturing traffic and Splunk SIEM collecting logs</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#C0392B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- VMware outer container -->
+  <rect x="14" y="14" width="652" height="390" rx="18" fill="#E8EAF6" fill-opacity="0.45" stroke="#3949AB" stroke-width="1.8" stroke-dasharray="7 4"/>
+  <rect x="28" y="22" width="236" height="24" rx="6" fill="#3949AB" fill-opacity="0.15"/>
+  <text x="40" y="38" font-family="sans-serif" font-size="13" fill="#1A237E" font-weight="700">VMware — Segmented Lab Environment</text>
+
+  <!-- ── ATTACKER NETWORK SEGMENT ──────────────────────────────────── -->
+  <rect x="28" y="52" width="172" height="334" rx="12" fill="#FDECEA" fill-opacity="0.6" stroke="#C62828" stroke-width="1.2"/>
+  <rect x="38" y="60" width="152" height="20" rx="5" fill="#C62828" fill-opacity="0.18"/>
+  <text x="114" y="73" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#7F0000">Attacker Network · 192.168.20.0/24</text>
+
+  <!-- Kali monitor -->
+  <rect x="62" y="90" width="104" height="70" rx="6" fill="#B71C1C" fill-opacity="0.5" stroke="#C62828" stroke-width="1.5"/>
+  <rect x="70" y="97" width="88" height="48" rx="3" fill="#7F0000" fill-opacity="0.8"/>
+  <rect x="106" y="162" width="20" height="6" rx="2" fill="#C62828" fill-opacity="0.9"/>
+  <rect x="93" y="168" width="46" height="4" rx="2" fill="#C62828" fill-opacity="0.9"/>
+  <!-- Kali dragon symbol — white on dark -->
+  <circle cx="114" cy="121" r="13" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.85"/>
+  <path d="M114 111 L108 126 L114 122 L120 126 Z" fill="#FFFFFF" fill-opacity="0.9"/>
+
+  <text x="114" y="186" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#7F0000">Kali Linux</text>
+  <text x="114" y="201" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#B71C1C">192.168.20.11</text>
+
+  <!-- Tools box -->
+  <rect x="38" y="218" width="152" height="62" rx="8" fill="#FDECEA" stroke="#C62828" stroke-width="0.8"/>
+  <text x="114" y="238" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="600" fill="#7F0000">Attack Tools</text>
+  <text x="114" y="254" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#C62828">Nmap · SYN Scan</text>
+  <text x="114" y="269" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#C62828">SMBclient · Enum</text>
+
+  <!-- Wireshark box -->
+  <rect x="38" y="296" width="152" height="78" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="0.8"/>
+  <text x="114" y="316" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="600" fill="#0D3C78">Wireshark</text>
+  <text x="114" y="332" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1565C0">Packet Capture</text>
+  <text x="114" y="348" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1565C0">Filter · Analyse</text>
+  <text x="114" y="364" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1565C0">Detect IOCs</text>
+
+  <!-- ── PFSENSE FIREWALL ────────────────────────────────────────────── -->
+  <rect x="272" y="130" width="136" height="142" rx="12" fill="#FFF8E1" fill-opacity="0.8" stroke="#F57F17" stroke-width="1.5"/>
+  <!-- pfSense monitor -->
+  <rect x="296" y="146" width="88" height="60" rx="6" fill="#E65100" fill-opacity="0.5" stroke="#F57F17" stroke-width="1.5"/>
+  <rect x="303" y="152" width="74" height="40" rx="3" fill="#BF360C" fill-opacity="0.8"/>
+  <rect x="331" y="208" width="18" height="5" rx="2" fill="#E65100" fill-opacity="0.9"/>
+  <rect x="320" y="213" width="40" height="4" rx="2" fill="#E65100" fill-opacity="0.9"/>
+  <!-- Shield icon on screen -->
+  <path d="M340 161 L340 183 Q340 189 340 189 Q340 189 340 183 L340 161Z" fill="none"/>
+  <path d="M340 161 L328 166 L328 177 Q328 186 340 189 Q352 186 352 177 L352 166 Z" fill="#FFFFFF" fill-opacity="0.85"/>
+  <text x="340" y="182" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#BF360C">pf</text>
+  <text x="340" y="228" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#7f3100">pfSense</text>
+  <text x="340" y="243" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#E65100">Firewall · Routing</text>
+  <text x="340" y="258" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#E65100">Network Segmentation</text>
+
+  <!-- ── TARGET NETWORK SEGMENT ─────────────────────────────────────── -->
+  <rect x="480" y="52" width="172" height="218" rx="12" fill="#E8F5E9" fill-opacity="0.6" stroke="#2E7D32" stroke-width="1.2"/>
+  <rect x="490" y="60" width="152" height="20" rx="5" fill="#2E7D32" fill-opacity="0.18"/>
+  <text x="566" y="73" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#1B5E20">Target Network · 192.168.10.0/24</text>
+
+  <!-- Windows 11 monitor -->
+  <rect x="514" y="90" width="104" height="70" rx="6" fill="#2E7D32" fill-opacity="0.5" stroke="#388E3C" stroke-width="1.5"/>
+  <rect x="522" y="97" width="88" height="48" rx="3" fill="#1B5E20" fill-opacity="0.8"/>
+  <rect x="558" y="162" width="20" height="6" rx="2" fill="#2E7D32" fill-opacity="0.9"/>
+  <rect x="545" y="168" width="46" height="4" rx="2" fill="#2E7D32" fill-opacity="0.9"/>
+  <!-- Windows logo on screen white -->
+  <rect x="554" y="109" width="10" height="9" rx="1" fill="#FFFFFF" fill-opacity="0.95"/>
+  <rect x="566" y="109" width="10" height="9" rx="1" fill="#FFFFFF" fill-opacity="0.95"/>
+  <rect x="554" y="120" width="10" height="9" rx="1" fill="#FFFFFF" fill-opacity="0.95"/>
+  <rect x="566" y="120" width="10" height="9" rx="1" fill="#FFFFFF" fill-opacity="0.95"/>
+
+  <text x="566" y="186" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#1B5E20">Windows 11</text>
+  <text x="566" y="201" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#2E7D32">192.168.10.x</text>
+
+  <!-- Open port box -->
+  <rect x="490" y="216" width="152" height="44" rx="8" fill="#E8F5E9" stroke="#2E7D32" stroke-width="0.8"/>
+  <text x="566" y="234" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="600" fill="#1B5E20">Port 445 (SMB) Open</text>
+  <text x="566" y="250" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#388E3C">Auth controls enforced</text>
+
+  <!-- ── SPLUNK SIEM ─────────────────────────────────────────────────── -->
+  <rect x="480" y="286" width="172" height="144" rx="12" fill="#EDE7F6" fill-opacity="0.6" stroke="#4527A0" stroke-width="1.2"/>
+  <rect x="490" y="294" width="152" height="20" rx="5" fill="#4527A0" fill-opacity="0.18"/>
+  <text x="566" y="307" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#1A0050">Log Collection · SIEM</text>
+  <!-- Splunk monitor -->
+  <rect x="514" y="318" width="104" height="60" rx="6" fill="#4527A0" fill-opacity="0.45" stroke="#512DA8" stroke-width="1.2"/>
+  <rect x="522" y="325" width="88" height="38" rx="3" fill="#311B92" fill-opacity="0.8"/>
+  <text x="566" y="349" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">Splunk</text>
+  <rect x="558" y="379" width="16" height="5" rx="2" fill="#4527A0" fill-opacity="0.9"/>
+  <rect x="547" y="384" width="38" height="3" rx="2" fill="#4527A0" fill-opacity="0.9"/>
+  <text x="566" y="402" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4527A0">Windows Event Logs</text>
+  <text x="566" y="418" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4527A0">SIEM Correlation</text>
+
+  <!-- ── ARROWS ────────────────────────────────────────────────────────── -->
+  <!-- Kali → pfSense attack arrow (red dashed) -->
+  <path d="M200 195 L270 195" fill="none" stroke="#C0392B" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#arrowRed)"/>
+  <rect x="204" y="177" width="64" height="15" rx="4" fill="#FDECEA" stroke="#C62828" stroke-width="0.7"/>
+  <text x="236" y="188" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#7F0000">SYN Scan</text>
+
+  <!-- pfSense → Windows 11 arrow -->
+  <path d="M408 195 L478 195" fill="none" stroke="#C0392B" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#arrowRed)"/>
+  <rect x="412" y="177" width="62" height="15" rx="4" fill="#FDECEA" stroke="#C62828" stroke-width="0.7"/>
+  <text x="443" y="188" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#7F0000">Port 445</text>
+
+  <!-- Windows 11 → Splunk log flow arrow -->
+  <path d="M566 270 L566 284" fill="none" stroke="#4527A0" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="542" y="272" width="48" height="14" rx="4" fill="#EDE7F6" stroke="#4527A0" stroke-width="0.6"/>
+  <text x="566" y="282" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="600" fill="#311B92">Event Logs</text>
+
+  <!-- Wireshark capture annotation -->
+  <path d="M114 296 L114 280 Q114 265 200 265 L270 265" fill="none" stroke="#1565C0" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <rect x="158" y="256" width="96" height="14" rx="4" fill="#E3F2FD" stroke="#1565C0" stroke-width="0.6"/>
+  <text x="206" y="266" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="600" fill="#0D3C78">Capture traffic</text>
+
+  <!-- ── MITRE LABEL ─────────────────────────────────────────────────── -->
+  <rect x="28" y="404" width="638" height="48" rx="10" fill="#F3F0FF" stroke="#4527A0" stroke-width="0.8"/>
+  <text x="340" y="422" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#311B92">MITRE ATT&amp;CK Coverage</text>
+  <text x="340" y="442" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4527A0">T1595 · Active Scanning    |    T1046 · Network Service Discovery    |    T1021.002 · SMB / Windows Admin Shares</text>
+
+</svg>
